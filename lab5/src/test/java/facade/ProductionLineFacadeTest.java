@@ -2,8 +2,7 @@ package facade;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ProductionLineFacadeTest {
     @Test
@@ -21,6 +20,6 @@ public class ProductionLineFacadeTest {
 
         productionLine.stopProductionLine();
 
-        assertTrue("Production line should be stopped", productionLine.status());
+        assertFalse("Production line should be stopped", productionLine.status());
     }
 }
