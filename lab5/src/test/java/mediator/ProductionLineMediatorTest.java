@@ -2,6 +2,7 @@ package mediator;
 
 import components.Conveyor;
 import components.Robot;
+import components.Sensor;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -35,6 +36,6 @@ public class ProductionLineMediatorTest {
 
         mediator.registerSensor(sensor);
 
-        assertNotNull(mediator.getSensors());
+        assertNotNull(mediator.getSensor());
     }
 }
