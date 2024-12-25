@@ -1,5 +1,6 @@
 package mediator;
 
+import components.Conveyor;
 import components.Robot;
 import org.junit.Test;
 
@@ -25,7 +26,6 @@ public class ProductionLineMediatorTest {
         mediator.registerConveyor(conveyor);
 
         assertNotNull(mediator.getConveyor());
-
     }
 
     @Test
@@ -37,6 +37,4 @@ public class ProductionLineMediatorTest {
 
         assertNotNull(mediator.getSensors());
     }
-
-
 }
