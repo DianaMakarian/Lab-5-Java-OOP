@@ -1,5 +1,6 @@
 package mediator;
 
+import components.Robot;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,7 +14,7 @@ public class ProductionLineMediatorTest {
 
         mediator.registerRobot(robot);
 
-        assertNotNull(mediator.getRobots());
+        assertNotNull("Robots should not be null",mediator.getRobots());
     }
 
     @Test
@@ -36,4 +37,6 @@ public class ProductionLineMediatorTest {
 
         assertNotNull(mediator.getSensors());
     }
+
+
 }
