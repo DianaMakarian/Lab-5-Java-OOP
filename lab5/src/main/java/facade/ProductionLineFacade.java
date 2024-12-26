@@ -2,6 +2,8 @@ package facade;
 
 public class ProductionLineFacade {
     boolean isRunning = false;
+
+
     public void startProductionLine() {
         System.out.println("Production line started");
         isRunning = true;

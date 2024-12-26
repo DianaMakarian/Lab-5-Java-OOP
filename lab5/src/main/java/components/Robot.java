@@ -2,14 +2,14 @@ package components;
 
 import mediator.ProductionLineMediator;
 
-public class Robot {
+public class Robot extends Component {
     private String name;
     private ProductionLineMediator mediator;
     private boolean isPerformingTask = false;
 
     public Robot(String name, ProductionLineMediator mediator) {
-        this.name = name;
-        this.mediator = mediator;
+        super(mediator);
+        setName(name);
     }
 
     public String getName() {

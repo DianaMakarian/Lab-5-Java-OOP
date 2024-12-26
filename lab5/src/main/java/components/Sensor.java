@@ -2,13 +2,13 @@ package components;
 
 import mediator.ProductionLineMediator;
 
-public class Sensor {
+public class Sensor  extends Component {
     private String name;
     private ProductionLineMediator mediator;
 
     public Sensor(String sensor, ProductionLineMediator mediator) {
-        this.name = sensor;
-        this.mediator = mediator;
+        super(mediator);
+        setName(sensor);
     }
 
     public String getName() {

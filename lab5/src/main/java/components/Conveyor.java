@@ -2,13 +2,14 @@ package components;
 
 import mediator.ProductionLineMediator;
 
-public class Conveyor {
+public class Conveyor extends Component {
     private String name;
     private ProductionLineMediator mediator;
     private boolean isRunning = false;
 
     public Conveyor(String conveyor, ProductionLineMediator mediator) {
-        this.name = conveyor;
+        super(mediator);
+        setName(conveyor);
     }
 
     public String getName() {
