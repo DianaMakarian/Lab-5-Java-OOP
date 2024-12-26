@@ -9,7 +9,7 @@ public class SensorTest {
     public void testIsSensorTriggered() {
         Sensor sensor = new Sensor("Sensor1", null);
 
-        sensor.triggerSensor();
+        sensor.triggerSensorNotify();
 
         assertTrue("Sensor should be triggered", sensor.isTriggered());
     }
@@ -24,7 +24,7 @@ public class SensorTest {
     @Test
     public void testResetSensor() {
         Sensor sensor = new Sensor("Sensor1", null);
-        sensor.triggerSensor();
+        sensor.triggerSensorNotify();
 
         sensor.resetSensor();
 
@@ -35,7 +35,7 @@ public class SensorTest {
     public void testSensorStatus() {
         Sensor sensor = new Sensor("Sensor1", null);
 
-        String notify = sensor.triggerSensor();
+        String notify = sensor.triggerSensorNotify();
 
         assertEquals("Sensor should be triggered", notify, "Sensor Sensor1 detected a new item");
     }

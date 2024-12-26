@@ -3,8 +3,6 @@ package components;
 import mediator.ProductionLineMediator;
 
 public class Robot extends Component {
-    private String name;
-    private ProductionLineMediator mediator;
     private boolean isPerformingTask = false;
 
     public Robot(String name, ProductionLineMediator mediator) {

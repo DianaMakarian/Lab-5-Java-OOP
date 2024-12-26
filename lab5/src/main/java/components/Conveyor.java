@@ -3,8 +3,6 @@ package components;
 import mediator.ProductionLineMediator;
 
 public class Conveyor extends Component {
-    private String name;
-    private ProductionLineMediator mediator;
     private boolean isRunning = false;
 
     public Conveyor(String conveyor, ProductionLineMediator mediator) {
@@ -28,7 +26,7 @@ public class Conveyor extends Component {
         isRunning = false;
     }
 
-    public String isMoving() {
+    public String conveyorPerformAction() {
         if (isRunning) {
             return "Conveyor is moving";
         } else {

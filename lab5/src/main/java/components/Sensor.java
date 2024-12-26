@@ -3,8 +3,6 @@ package components;
 import mediator.ProductionLineMediator;
 
 public class Sensor  extends Component {
-    private String name;
-    private ProductionLineMediator mediator;
     private boolean isTriggered = false;
 
     public Sensor(String sensor, ProductionLineMediator mediator) {
@@ -24,7 +22,7 @@ public class Sensor  extends Component {
         return mediator;
     }
 
-    public String triggerSensor() {
+    public String triggerSensorNotify() {
         isTriggered = true;
         return "Sensor " + getName() + " detected a new item";
     }
