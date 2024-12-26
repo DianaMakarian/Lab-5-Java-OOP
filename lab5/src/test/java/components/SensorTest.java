@@ -1,7 +1,8 @@
 package components;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class SensorTest {
     @Test
@@ -34,8 +35,8 @@ public class SensorTest {
     public void testSensorStatus() {
         Sensor sensor = new Sensor("Sensor1", null);
 
-        String notify =sensor.triggerSensor();
+        String notify = sensor.triggerSensor();
 
         assertEquals("Sensor should be triggered", notify, "Sensor Sensor1 detected a new item");
-
+    }
 }
