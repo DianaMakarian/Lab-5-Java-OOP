@@ -22,7 +22,7 @@ public class RobotTest extends TestCase {
     @Test
     public void testStopTask() {
         Robot robot = new Robot("Robot1", null);
-        
+
         robot.stopTask();
 
         assertFalse("Robot should not be performing task", robot.isPerformingTask());

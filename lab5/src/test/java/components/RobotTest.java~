@@ -5,12 +5,19 @@ import org.junit.Test;
 
 public class RobotTest extends TestCase {
     @Test
-    public void testPerformTask() {
+    public void testStartTask() {
         Robot robot = new Robot("Robot1", null);
-        robot.performTask();
+        robot.startTask();
 
         assertTrue("Robot should be performing task", robot.isPerformingTask());
-        assertEquals("Robot1 should performing a task", robot.performTask(), "Robot" + getName() + "is performing task");
+    }
+
+    @Test
+    public void testPerformTask() {
+        Robot robot = new Robot("Robot1", null);
+        String task = robot.performTask();
+
+        assertEquals("Robot1 should performing a task", task, "Robot Robot1is performing task");
     }
     @Test
     public void testStopTask() {
