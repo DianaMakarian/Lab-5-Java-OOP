@@ -31,7 +31,7 @@ public class Conveyor {
         if (isRunning) {
             return "Conveyor is moving";
         } else {
-            return "Conveyor is stopped";
+            return "Conveyor is not moving";
         }
     }
 

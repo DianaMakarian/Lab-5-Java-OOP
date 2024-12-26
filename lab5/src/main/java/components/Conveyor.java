@@ -34,6 +34,4 @@ public class Conveyor {
             return "Conveyor is not moving";
         }
     }
-
-
 }

@@ -22,7 +22,7 @@ public class ConveyorTest extends TestCase {
     }
 
     @Test
-    public void testStopConveyor() {
+    public void testStopConveyor(){
         Conveyor conveyor = new Conveyor("Conveyor1", null);
 
         conveyor.stopConveyor();
