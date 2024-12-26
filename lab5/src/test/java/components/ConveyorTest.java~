@@ -11,14 +11,14 @@ public class ConveyorTest extends TestCase {
 
         conveyor.moveConveyor();
 
-        assertEquals("Conveyor should be moving", conveyor.isMoving(), "Conveyor is moving");
+        assertEquals("Conveyor is moving", conveyor.isMoving(), "Conveyor should be moving");
     }
 
     @Test
     public void testGetConveyorPosition(){
         Conveyor conveyor = new Conveyor("Conveyor1", null);
 
-        assertEquals("Conveyor should not be moving", conveyor.isMoving(), "Conveyor is not moving");
+        assertEquals("Conveyor is not moving", conveyor.isMoving(), "Conveyor should not be moving");
     }
 
     @Test
@@ -28,5 +28,6 @@ public class ConveyorTest extends TestCase {
         conveyor.stopConveyor();
 
         assertEquals("Conveyor is not moving", conveyor.isMoving(), "Conveyor should not be moving");
+
     }
 }

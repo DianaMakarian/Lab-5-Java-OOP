@@ -18,4 +18,8 @@ public class Conveyor {
     public void setName(String name) {
         this.name = name;
     }
+
+    public long getPosition() {
+        return
+    }
 }
