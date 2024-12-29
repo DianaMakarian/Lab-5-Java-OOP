@@ -18,6 +18,10 @@ public class Sensor extends ProductionComponent {
         this.name = name;
     }
 
+    public boolean isTriggered() {
+        return isTriggered;
+    }
+
     public void triggerSensor() {
         isTriggered = true;
         if (mediator != null) {
