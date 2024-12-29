@@ -55,7 +55,6 @@ public class ProductionLineFacade {
     }
 
     public void checkStatus() {
-        System.out.print("Status: ");
         if (isRunning) {
             System.out.println("The production line is currently running");
         } else {

@@ -27,4 +27,8 @@ public class Robot extends ProductionComponent {
         isPerformingTask = false;
         mediator.notify(this, "taskStopped");
     }
+
+    public boolean isPerformingTask() {
+        return isPerformingTask;
+    }
 }

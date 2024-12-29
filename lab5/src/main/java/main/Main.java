@@ -1,4 +1,5 @@
 package main;
+
 import facade.ProductionLineFacade;
 
 public class Main {
@@ -10,10 +11,12 @@ public class Main {
         productionLine.addRobot("Welding Robot");
         productionLine.addRobot("Painting Robot");
 
+        System.out.println("_________________");
         productionLine.startProductionLine();
 
         productionLine.checkStatus();
 
+        System.out.println("_________________");
         productionLine.stopProductionLine();
 
         productionLine.checkStatus();
