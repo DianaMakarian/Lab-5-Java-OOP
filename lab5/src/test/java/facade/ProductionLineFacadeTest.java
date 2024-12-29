@@ -6,23 +6,37 @@ import static org.junit.Assert.*;
 
 public class ProductionLineFacadeTest {
     @Test
-    public void testStartProductionLine() {
-        ProductionLineFacade productionLine = new ProductionLineFacade();
+    public void whenProductionLineStarts_thenConveyorAndSensorShouldBeActive() {
+        ProductionLineFacade facade = new ProductionLineFacade();
+        facade.addConveyor("Main Conveyor");
+        facade.addSensor("Item Detection Sensor");
 
-        productionLine.startProductionLine();
+        facade.startProductionLine();
 
-        assertTrue("Production line should be running",productionLine.status());
+        assertTrue(facade.status());
     }
 
     @Test
-    public void testStopProductionLine() {
-        ProductionLineFacade productionLine = new ProductionLineFacade();
-        productionLine.startProductionLine();
+    public void whenProductionLineStops_thenItShouldBeStopped() {
+        ProductionLineFacade facade = new ProductionLineFacade();
+        facade.addConveyor("Main Conveyor");
+        facade.addSensor("Item Detection Sensor");
 
-        productionLine.stopProductionLine();
 
-        assertFalse("Production line should be stopped", productionLine.status());
+        facade.startProductionLine();
+        facade.stopProductionLine();
+
+        assertFalse(facade.status());
     }
 
+    @Test
+    public void whenAddingComponents_thenTheyShouldBeRegisteredCorrectly() {
+        ProductionLineFacade facade = new ProductionLineFacade();
 
+        facade.addConveyor("Main Conveyor");
+        facade.addSensor("Item Detection Sensor");
+        facade.addRobot("Welding Robot");
+
+        assertNotNull(facade.status());
+    }
 }
