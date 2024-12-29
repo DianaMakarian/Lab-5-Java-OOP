@@ -1,30 +1,19 @@
 package components;
 
 import junit.framework.TestCase;
+import mediator.ProductionLineMediator;
 import org.junit.Test;
 
-public class RobotTest extends TestCase {
+import static org.junit.Assert.*;
+
+public class RobotTest{
     @Test
-    public void testStartTask() {
-        Robot robot = new Robot("Robot1", null);
-        robot.startTask();
+    public void whenRobotIsRegistered_thenItShouldAppearInRobotsList() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Robot robot = new Robot("Robot1", mediator);
 
-        assertTrue("Robot should be performing task", robot.isPerformingTask());
-    }
+        mediator.registerRobot(robot);
 
-    @Test
-    public void testPerformTask() {
-        Robot robot = new Robot("Robot1", null);
-        String task = robot.performTask();
-
-        assertEquals("Robot1 should performing a task", task, "Robot Robot1is performing task");
-    }
-    @Test
-    public void testStopTask() {
-        Robot robot = new Robot("Robot1", null);
-        
-        robot.stopTask();
-
-        assertFalse("Robot should not be performing task", robot.isPerformingTask());
+        assertTrue(mediator.getRobots().contains(robot));
     }
 }
