@@ -2,11 +2,11 @@ package components;
 
 import mediator.ProductionLineMediator;
 
-abstract class Component {
+public abstract class ProductionComponent {
     protected ProductionLineMediator mediator;
     protected String name;
 
-    public Component(ProductionLineMediator mediator) {
+    public ProductionComponent(ProductionLineMediator mediator) {
         this.mediator = mediator;
     }
 

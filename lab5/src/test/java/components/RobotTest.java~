@@ -3,7 +3,9 @@ package components;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-public class RobotTest extends TestCase {
+import static org.junit.Assert.*;
+
+public class RobotTest{
     @Test
     public void testStartTask() {
         Robot robot = new Robot("Robot1", null);
@@ -22,7 +24,7 @@ public class RobotTest extends TestCase {
     @Test
     public void testStopTask() {
         Robot robot = new Robot("Robot1", null);
-        
+
         robot.stopTask();
 
         assertFalse("Robot should not be performing task", robot.isPerformingTask());

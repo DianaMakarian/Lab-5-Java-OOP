@@ -2,7 +2,7 @@ package components;
 
 import mediator.ProductionLineMediator;
 
-public class Robot extends Component {
+public class Robot extends ProductionComponent {
     private boolean isPerformingTask = false;
 
     public Robot(String name, ProductionLineMediator mediator) {
@@ -20,17 +20,11 @@ public class Robot extends Component {
 
     public void startTask() {
         isPerformingTask = true;
-    }
-
-    public boolean isPerformingTask() {
-        return isPerformingTask;
-    }
-
-    public String performTask() {
-        return "Robot " + name + "is performing task";
+        mediator.notify(this, "taskStarted");
     }
 
     public void stopTask() {
         isPerformingTask = false;
+        mediator.notify(this, "taskStopped");
     }
 }

@@ -1,0 +1,26 @@
+package demo;
+
+import components.Conveyor;
+import components.Robot;
+import components.Sensor;
+import mediator.ProductionLineMediator;
+
+public class Demo {
+    public static void main(String[] args) {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+
+        Sensor sensor = new Sensor("Sensor1", mediator);
+        Conveyor conveyor = new Conveyor("Conveyor1", mediator);
+        Robot robot1 = new Robot("Robot1", mediator);
+        Robot robot2 = new Robot("Robot2", mediator);
+
+        mediator.registerSensor(sensor);
+        mediator.registerConveyor(conveyor);
+        mediator.registerRobot(robot1);
+        mediator.registerRobot(robot2);
+
+        // Симуляція роботи
+        sensor.triggerSensor(); // Сенсор спрацював, конвеєр починає рух, роботи починають завдання
+        conveyor.stopConveyor(); // Конвеєр зупиняється, роботи зупиняють завдання
+    }
+}
