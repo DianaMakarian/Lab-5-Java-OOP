@@ -38,4 +38,47 @@ public class ProductionLineMediatorTest {
 
         assertNotNull(mediator.getSensor());
     }
+
+    @Test
+    public void whenConveyorStarts_thenMediatorShouldHandleNotification() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Conveyor conveyor = new Conveyor("Conveyor1", mediator);
+        mediator.registerConveyor(conveyor);
+
+        conveyor.moveConveyor();
+
+        assertEquals("Conveyor is moving", conveyor.conveyorPerformAction());
+    }
+
+    @Test
+    public void whenSensorIsTriggered_thenMediatorShouldNotifyConveyorAndRobots() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Conveyor conveyor = new Conveyor("Conveyor1", mediator);
+        Robot robot = new Robot("Robot1", mediator);
+        Sensor sensor = new Sensor("Sensor1", mediator);
+        mediator.registerConveyor(conveyor);
+        mediator.registerRobot(robot);
+        mediator.registerSensor(sensor);
+
+        sensor.triggerSensor();
+
+        assertEquals("Conveyor is moving", conveyor.conveyorPerformAction());
+        assertTrue(robot.isPerformingTask());
+    }
+
+    @Test
+    public void whenConveyorStops_thenMediatorShouldStopRobots() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Conveyor conveyor = new Conveyor("Conveyor1", mediator);
+        Robot robot = new Robot("Robot1", mediator);
+        mediator.registerConveyor(conveyor);
+        mediator.registerRobot(robot);
+
+        conveyor.moveConveyor();
+        conveyor.stopConveyor();
+
+        assertEquals("Conveyor is not moving", conveyor.conveyorPerformAction());
+        assertFalse(robot.isPerformingTask());
+    }
+
 }

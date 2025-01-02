@@ -2,7 +2,7 @@ package components;
 
 import mediator.ProductionLineMediator;
 
-public class Conveyor extends Component {
+public class Conveyor extends ProductionComponent {
     private boolean isRunning = false;
 
     public Conveyor(String conveyor, ProductionLineMediator mediator) {
@@ -20,10 +20,12 @@ public class Conveyor extends Component {
 
     public void moveConveyor() {
         isRunning = true;
+        mediator.notify(this, "started");
     }
 
     public void stopConveyor() {
         isRunning = false;
+        mediator.notify(this, "stopped");
     }
 
     public String conveyorPerformAction() {

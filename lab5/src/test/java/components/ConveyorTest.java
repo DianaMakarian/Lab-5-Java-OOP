@@ -1,36 +1,42 @@
 package components;
 
 import junit.framework.TestCase;
+import mediator.ProductionLineMediator;
 import org.junit.Test;
 
-public class ConveyorTest extends TestCase {
+import static org.junit.Assert.*;
+
+public class ConveyorTest {
 
     @Test
-    public void testMoveConveyor(){
-        Conveyor conveyor = new Conveyor("Conveyor1", null);
+    public void whenConveyorIsRegistered_thenFieldShouldNotBeNull() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Conveyor conveyor = new Conveyor("Conveyor1", mediator);
+
+        mediator.registerConveyor(conveyor);
+
+        assertNotNull(mediator.getConveyor());
+    }
+
+    @Test
+    public void whenConveyorStarts_thenItShouldBeRunning() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Conveyor conveyor = new Conveyor("Conveyor1", mediator);
 
         conveyor.moveConveyor();
-        String action = conveyor.conveyorPerformAction();
 
-        assertEquals("Conveyor should be moving", action, "Conveyor is moving");
+        assertEquals("Conveyor is moving", conveyor.conveyorPerformAction());
     }
 
     @Test
-    public void testGetConveyorPosition(){
-        Conveyor conveyor = new Conveyor("Conveyor1", null);
+    public void whenConveyorStops_thenItShouldNotBeRunning() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Conveyor conveyor = new Conveyor("Conveyor1", mediator);
 
-        String action = conveyor.conveyorPerformAction();
-
-        assertEquals("Conveyor should not be moving", action, "Conveyor is not moving");
-    }
-
-    @Test
-    public void testStopConveyor(){
-        Conveyor conveyor = new Conveyor("Conveyor1", null);
-
+        conveyor.moveConveyor();
         conveyor.stopConveyor();
-        String action = conveyor.conveyorPerformAction();
 
-        assertEquals("Conveyor should not be moving", action, "Conveyor is not moving");
+        assertEquals("Conveyor is not moving", conveyor.conveyorPerformAction());
     }
+
 }

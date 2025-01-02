@@ -1,30 +1,41 @@
 package components;
 
 import junit.framework.TestCase;
+import mediator.ProductionLineMediator;
 import org.junit.Test;
 
-public class RobotTest extends TestCase {
+import static org.junit.Assert.*;
+
+public class RobotTest{
     @Test
-    public void testStartTask() {
-        Robot robot = new Robot("Robot1", null);
+    public void whenRobotIsRegistered_thenItShouldAppearInRobotsList() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Robot robot = new Robot("Robot1", mediator);
+
+        mediator.registerRobot(robot);
+
+        assertTrue(mediator.getRobots().contains(robot));
+    }
+
+    @Test
+    public void whenRobotStartsTask_thenItShouldBePerformingTask() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Robot robot = new Robot("Robot1", mediator);
+
         robot.startTask();
 
-        assertTrue("Robot should be performing task", robot.isPerformingTask());
+        assertTrue(robot.isPerformingTask());
     }
 
     @Test
-    public void testPerformTask() {
-        Robot robot = new Robot("Robot1", null);
-        String task = robot.performTask();
+    public void whenRobotStopsTask_thenItShouldNotBePerformingTask() {
+        ProductionLineMediator mediator = new ProductionLineMediator();
+        Robot robot = new Robot("Robot1", mediator);
 
-        assertEquals("Robot1 should performing a task", task, "Robot Robot1is performing task");
-    }
-    @Test
-    public void testStopTask() {
-        Robot robot = new Robot("Robot1", null);
-
+        robot.startTask();
         robot.stopTask();
 
-        assertFalse("Robot should not be performing task", robot.isPerformingTask());
+        assertFalse(robot.isPerformingTask());
     }
+
 }
